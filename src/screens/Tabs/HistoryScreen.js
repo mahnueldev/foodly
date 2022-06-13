@@ -1,11 +1,14 @@
 import React from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, Button } from "react-native";
 
 
-const HistoryScreen = () => {
+const HistoryScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.fonts}>View you History</Text>
+      <Button 
+    onPress={() => navigation.navigate("DoubleStack")}
+    title="Press"/>
     </View>
   );
 };

@@ -9,7 +9,7 @@ const HomeScreen = ({navigation}) => {
     <View style={styles.container}>
     <Text style={styles.fonts}>You are Home</Text>
     <Button 
-    onPress={() => navigation.navigate("Stack")}
+    onPress={() => navigation.navigate("StackScreen")}
     title="Button to press"/>
     </View>
   )
@@ -29,18 +29,3 @@ const styles= StyleSheet.create({
 })
 
 export default HomeScreen
-
-// const styles= StyleSheet.create({
-//   container:{
-//     flex: 1,
-//     backgroundColor: '#6112ac',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-    
-//   },
-
-//   fonts:{
-//     fontSize: 59,
-//     color: 'white', 
-//   }
-// })
