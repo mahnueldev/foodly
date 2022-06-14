@@ -11,7 +11,7 @@ const Drawer = createDrawerNavigator();
 export default function DrawerStack() {
     return (
         <Drawer.Navigator >
-          <Drawer.Screen name="Home" options={{ headerShown: false }}component={TabStack} />
+          <Drawer.Screen name="Dashboard" options={{ headerShown: false }}component={TabStack} />
           <Drawer.Screen name="Profile" component={ProfileScreen} />
           <Drawer.Screen name="Setting" component={SettingScreen} />
           <Drawer.Screen name="Logout" component={LogoutScreen}/>

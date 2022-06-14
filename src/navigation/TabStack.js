@@ -1,5 +1,6 @@
 import React from 'react'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 
 // Bottom Menu imports
@@ -13,12 +14,72 @@ const Tab = createBottomTabNavigator();
 
 export default function TabStack() {
   return (
-    <Tab.Navigator initialRouteName= "Home">
-      <Tab.Screen name="Scan" component={ScanScreen} />
-      <Tab.Screen name="History" component={HistoryScreen} />
-      <Tab.Screen name="Home" component={HomeScreen}  />
-      <Tab.Screen name="Add" component={AddScreen} />
-      <Tab.Screen name="List" component={ListScreen} />
+    <Tab.Navigator 
+    initialRouteName= "Home"
+ 
+    screenOptions={{
+      // headerShown: false,
+      tabBarShowLabel: false,
+      tabBarStyle: {backgroundColor: '#E6E6E6'},
+      tabBarInactiveTintColor: '#8d8d8d',
+      tabBarActiveTintColor: '#cc6516',
+    }}
+    >
+      <Tab.Screen name="Scan" component={ScanScreen} 
+      options={{ 
+        tabBarIcon: ({color, size}) => (
+        <MaterialIcons
+        name="qr-code"
+        size={size}
+        color={color}
+      /> 
+      ),
+        }}
+      />
+      <Tab.Screen name="History" component={HistoryScreen} 
+      options={{ 
+        tabBarIcon: ({color, size}) => (
+        <MaterialIcons
+        name="history"
+        size={size}
+        color={color}
+      /> 
+      ),
+        }}
+      />
+      <Tab.Screen name="Home" component={HomeScreen} 
+      options={{ 
+      tabBarIcon: ({color, size}) => (
+      <MaterialIcons
+      name="dashboard"
+      size={size}
+      color={color}
+    /> 
+    ),
+      }}
+      />
+      <Tab.Screen name="Add" component={AddScreen} 
+      options={{ 
+        tabBarIcon: ({color, size}) => (
+        <MaterialIcons
+        name="add-circle-outline"
+        size={size}
+        color={color}
+      /> 
+      ),
+        }}
+      />
+      <Tab.Screen name="List" component={ListScreen} 
+      options={{ 
+        tabBarIcon: ({color, size}) => (
+        <MaterialIcons
+        name="list"
+        size={size}
+        color={color}
+      /> 
+      ),
+        }}
+      />
       </Tab.Navigator>
 );
 }
