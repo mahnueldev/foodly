@@ -1,16 +1,21 @@
 import React from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import Banner from '../../components/Banner'
+import ProjectImg from '../../assets/projectImg.png'
+import Spinner from '../../components/Spinner'
+// import ProjectImg2 from '../../assets/projectImg2.png'
 
 
 
-
-const HomeScreen = ({navigation}) => {
+const HomeScreen = () => {
   return (
+    
     <View style={styles.container}>
-    <Text style={styles.fonts}>You are Home</Text>
-    <Button 
-    onPress={() => navigation.navigate("StackScreen")}
-    title="Button to press"/>
+    <Banner 
+    src={ProjectImg}
+     text='duis anim occaecat integer sapien,v nulla lacus veniam, velit nulla consectetur nulla gravida sapien,' />
+    <Spinner/>
+    
     </View>
   )
 }
@@ -18,7 +23,7 @@ const HomeScreen = ({navigation}) => {
 const styles= StyleSheet.create({
   container:{
     flex: 1,
-    backgroundColor: '#f26b4b',
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',  
   },
