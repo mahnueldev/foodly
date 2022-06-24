@@ -28,7 +28,7 @@ const getProducts = async () => {
     );
     dispatch({
         type: GET_ITEMS,
-        payload: res.data.items
+        payload: res.data
     });
   };
 

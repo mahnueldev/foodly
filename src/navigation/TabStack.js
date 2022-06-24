@@ -15,7 +15,7 @@ const Tab = createBottomTabNavigator();
 export default function TabStack() {
   return (
     <Tab.Navigator 
-    initialRouteName= "Home"
+    initialRouteName= "List"
  
     screenOptions={{
       // headerShown: false,

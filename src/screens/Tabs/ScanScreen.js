@@ -4,7 +4,7 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import OpenFoodContext from '../../context/openfood/openfoodContext'
 import Spinner from '../../components/Spinner';
 
-
+// Issue: API query not rendering
 
 const ScanScreen = () => {
 
@@ -28,10 +28,10 @@ const ScanScreen = () => {
   }, []);
 
   // What happens when we scan the bar code
-  const handleBarCodeScanned = () => {
+  const handleBarCodeScanned = ({type, data}) => {
     setScanned(true);
     if (loading) return <Spinner />;
-    getProducts(products)
+    getProducts (data) 
     
   };
 

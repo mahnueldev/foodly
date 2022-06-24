@@ -1,11 +1,16 @@
-import React from "react";
+import React, {useContext} from 'react';
 import { Text, StyleSheet, View } from "react-native";
+import OpenFoodContext from '../../context/openfood/openfoodContext'
 
-
+// Issue: API query not rendering
 const ListScreen = () => {
+  const openfoodContext = useContext(OpenFoodContext);
+  const { products } = openfoodContext;
   return (
     <View style={styles.container}>
-      <Text style={styles.fonts}>See Lists here</Text>
+       {products.map((product) =>{
+        <Text style={styles.container}>{product}</Text>
+  })}   
       
     </View>
   );
