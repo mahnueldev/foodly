@@ -9,7 +9,7 @@ import Spinner from '../../components/Spinner';
 const ScanScreen = () => {
 
   const openFoodContext = useContext(OpenFoodContext);
-  const { getProducts, products, loading } = openFoodContext;
+  const { getItems, items, loading } = openFoodContext;
 
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
@@ -31,7 +31,7 @@ const ScanScreen = () => {
   const handleBarCodeScanned = ({type, data}) => {
     setScanned(true);
     if (loading) return <Spinner />;
-    getProducts (data) 
+   data = getItems (); 
     
   };
 
@@ -59,8 +59,8 @@ const ScanScreen = () => {
           style={{ height: 600, width: 600 }} />
       </View>
       <View >
-        {products.map((product) =>{
-        <Text>{product.product}</Text>
+        {items.map((product) =>{
+        <Text>{product.allergens}</Text>
   })}   
       </View>
 

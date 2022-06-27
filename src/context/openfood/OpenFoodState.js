@@ -12,7 +12,7 @@ import {
 
 const OpenFoodState = props => {
     const initialState ={
-        products: [],
+        items: [],
         loading: false
     }
 
@@ -20,7 +20,7 @@ const OpenFoodState = props => {
 
 
 // Get List
-const getProducts = async () => {
+const getItems = async () => {
     setLoading();
 
     const res = await axios.get(
@@ -28,7 +28,7 @@ const getProducts = async () => {
     );
     dispatch({
         type: GET_ITEMS,
-        payload: res.data
+        payload: res.data.results
     });
   };
 
@@ -39,9 +39,9 @@ const getProducts = async () => {
 return <OpenFoodContext.Provider
 value={{
 
-    products: state.products,
+    items: state.items,
     loading: state.loading,
-    getProducts
+    getItems
 }}
 >
     {props.children}

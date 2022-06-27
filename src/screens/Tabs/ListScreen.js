@@ -1,17 +1,24 @@
-import React, {useContext} from 'react';
-import { Text, StyleSheet, View } from "react-native";
+import React, {useContext, useEffect} from 'react';
+import { Text, StyleSheet, View, Button } from "react-native";
 import OpenFoodContext from '../../context/openfood/openfoodContext'
+import Spinner from '../../components/Spinner';
 
 // Issue: API query not rendering
 const ListScreen = () => {
   const openfoodContext = useContext(OpenFoodContext);
-  const { products } = openfoodContext;
+  const { items, loading, getItems } = openfoodContext;
+  if (loading) return <Spinner />;
+//   useEffect(() => {
+  getItems(items);
+// }, []); 
+  console.log(items);
   return (
     <View style={styles.container}>
-       {products.map((product) =>{
-        <Text style={styles.container}>{product}</Text>
+       {items.map((product, i) =>{
+        <Text style={styles.container} key={i}>{product.allergens}</Text>
   })}   
-      
+       {/* <Button onPress={getItems} title="Press" /> */}
+         
     </View>
   );
 };

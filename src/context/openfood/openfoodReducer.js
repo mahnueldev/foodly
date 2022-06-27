@@ -9,7 +9,7 @@ export default (state, action) => {
         case GET_ITEMS:
             return {
                 ...state,
-               products: action.payload,
+               items: action.payload,
                loading: false 
             }
             case SET_LOADING:

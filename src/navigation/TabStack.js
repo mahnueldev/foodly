@@ -10,6 +10,7 @@ import ScanScreen from '../screens/Tabs/ScanScreen';
 import HistoryScreen from '../screens/Tabs/HistoryScreen';
 import ListScreen from '../screens/Tabs/ListScreen';
 
+
 const Tab = createBottomTabNavigator();
 
 export default function TabStack() {
