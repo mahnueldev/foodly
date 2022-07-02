@@ -1,41 +1,40 @@
-import React, { useContext, useEffect } from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
-import OpenFoodContext from '../../context/openfood/openfoodContext';
-import Spinner from '../../components/Spinner';
+import React, { useContext, useEffect } from "react";
+import { StyleSheet, View, FlatList, Text } from "react-native";
+import OpenFoodContext from "../../context/openfood/openfoodContext";
+import Spinner from "../../components/Spinner";
+import List from "../../components/List";
+import { container } from "../../styling/globalStyles";
 
-// Issue: API query not rendering
 const ListScreen = () => {
-    const openfoodContext = useContext(OpenFoodContext);
-    const { items, loading, getItems } = openfoodContext;
+  const openfoodContext = useContext(OpenFoodContext);
+  const { items, loading, getItems } = openfoodContext;
 
-    useEffect(() => {
-        if (!loading && !items) {
-            getItems();
-        }
-    }, [items, loading]);
+  useEffect(() => {
+    if (!loading && !items) {
+      getItems();
+    }
+  }, [items, loading]);
 
-    if (!items || loading) return <Spinner />;
-    return (
-        <View style={styles.container}>
-            <Text style={styles.container} key={items._id}>
-                {items.allergens_from_ingredients}
-            </Text>
-            {/* <Button onPress={getItems} title="Press" /> */}
-        </View>
-    );
+  if (!items || loading) return <Spinner />;
+
+
+  return (
+    <View>
+      <FlatList
+        data={items.product}
+        ListHeaderComponent={List}
+        keyExtractor={items}
+        renderItem={({ items  }) => {
+          return <List items={items} />;
+        }}
+      />
+      
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#cda656',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    fonts: {
-        fontSize: 50,
-        color: 'white',
-    },
+  container,
 });
 
 export default ListScreen;

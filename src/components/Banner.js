@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import ProjectImg2 from '../assets/projectImg2.png'
+import {font_P} from '../styling/globalStyles'
 
  const Banner =({
   image= ProjectImg2,
@@ -11,9 +12,9 @@ import ProjectImg2 from '../assets/projectImg2.png'
     <View style={styles.container}>
       <Image
         source={image}
-        style={{height: 200, width: 400, borderRadius: 34, padding: 20}}
+        style={{height: 200, width: 350, borderRadius: 34}}
       />
-      <Text style={styles.fonts}>{text} </Text>
+      <Text style={styles.font_P}>{text} </Text>
     </View>
   );
 }
@@ -28,9 +29,6 @@ const styles= StyleSheet.create({
     alignItems: 'center',
     borderRadius: 34
   },
-  fonts:{
-    fontSize: 20,
-    color: 'grey',
-    paddingTop: 15
-  }
+  font_P
+ 
 })

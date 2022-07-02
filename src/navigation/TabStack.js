@@ -21,7 +21,7 @@ export default function TabStack() {
     screenOptions={{
       // headerShown: false,
       tabBarShowLabel: false,
-      tabBarStyle: {backgroundColor: '#E6E6E6'},
+      tabBarStyle: {backgroundColor: '#fff'},
       tabBarInactiveTintColor: '#8d8d8d',
       tabBarActiveTintColor: '#cc6516',
     }}

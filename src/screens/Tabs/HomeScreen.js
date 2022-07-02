@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import Banner from '../../components/Banner'
 import ProjectImg from '../../assets/projectImg.png'
-import Spinner from '../../components/Spinner'
+import {container} from '../../styling/globalStyles'
 // import ProjectImg2 from '../../assets/projectImg2.png'
 
 
@@ -14,23 +14,17 @@ const HomeScreen = () => {
     <Banner 
     src={ProjectImg}
      text='duis anim occaecat integer sapien,v nulla lacus veniam, velit nulla consectetur nulla gravida sapien,' />
-    <Spinner/>
+    <Banner 
+    src={ProjectImg}
+     text='duis anim occaecat integer sapien,v nulla lacus veniam, velit nulla consectetur nulla gravida sapien,' />
+    
     
     </View>
   )
 }
 
 const styles= StyleSheet.create({
-  container:{
-    flex: 1,
-    backgroundColor: '#ffffff',
-    alignItems: 'center',
-    justifyContent: 'center',  
-  },
-  fonts:{
-    fontSize: 50,
-    color: 'white'
-  }
+  container
 })
 
 export default HomeScreen

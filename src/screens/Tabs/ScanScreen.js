@@ -9,11 +9,12 @@ import Spinner from '../../components/Spinner';
 const ScanScreen = () => {
 
   const openFoodContext = useContext(OpenFoodContext);
-  const { getItems, items, loading } = openFoodContext;
+  const { searchItem, item, loading } = openFoodContext;
 
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  // const [text, setText] = useState('Not yet scanned')
+  const [text, setText] = useState('');
+  
 
   const askForCameraPermission = () => {
     (async () => {
@@ -28,12 +29,19 @@ const ScanScreen = () => {
   }, []);
 
   // What happens when we scan the bar code
-  const handleBarCodeScanned = ({type, data}) => {
+  const handleBarCodeScanned = ({
+    type ='', 
+    data
+  }) => {
     setScanned(true);
-    if (loading) return <Spinner />;
-   data = getItems (); 
-    
-  };
+    setText(data);
+    useEffect(() => {
+      if (!loading && !item) {
+          searchItem(data);
+      }
+  }, [item, loading]);
+  }
+  if (!item || loading) return <Spinner />;
 
   // Check permissions and return the screens
   if (hasPermission === null) {
@@ -59,9 +67,9 @@ const ScanScreen = () => {
           style={{ height: 600, width: 600 }} />
       </View>
       <View >
-        {items.map((product) =>{
-        <Text>{product.allergens}</Text>
-  })}   
+        
+        <Text key={item._id}>{item.data}</Text>
+    
       </View>
 
       {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />}
