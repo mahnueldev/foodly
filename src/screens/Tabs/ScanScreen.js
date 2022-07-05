@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useContext  } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import OpenFoodContext from '../../context/openfood/openfoodContext'
-import Spinner from '../../components/Spinner';
-import ScanInfo from '../stacks/ScanInfoScreen'
 
-// Issue: API query not rendering
+
 
 const ScanScreen = ({navigation}) => {
 
-  const openFoodContext = useContext(OpenFoodContext);
-  const { searchItem, item, loading } = openFoodContext;
 
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
@@ -31,11 +26,12 @@ const ScanScreen = ({navigation}) => {
   // What happens when we scan the bar code
   const handleBarCodeScanned = ({ data}) => {
     setScanned(true);
-          searchItem(data);
+    searchItem(data);
+    navigation.navigate("ScanInfoScreen", {data: data})
+          
       
   }
-  if (loading) return <Spinner />;
-
+  
   // Check permissions and return the screens
   if (hasPermission === null) {
     return (
@@ -56,7 +52,7 @@ const ScanScreen = ({navigation}) => {
     <View style={styles.container}>
       <View style={styles.barcodebox}>
         <BarCodeScanner
-          onBarCodeScanned={scanned ? () =>navigation.navigate("ScanInfoScreen") && undefined : handleBarCodeScanned}
+          onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
           style={{ height: 600, width: 600 }} />
       </View>
       
