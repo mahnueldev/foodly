@@ -26,7 +26,6 @@ const ScanScreen = ({navigation}) => {
   // What happens when we scan the bar code
   const handleBarCodeScanned = ({ data}) => {
     setScanned(true);
-    searchItem(data);
     navigation.navigate("ScanInfoScreen", {data: data})
           
       

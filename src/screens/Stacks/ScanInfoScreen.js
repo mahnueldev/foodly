@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext  } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import OpenFoodContext from '../../context/openfood/openfoodContext'
 import {container} from '../../styling/globalStyles'
@@ -8,8 +8,9 @@ const ScanInfoScreen = () => {
   const openFoodContext = useContext(OpenFoodContext);
   const { searchItem, item, loading } = openFoodContext;
 
-
+  searchItem(data);
   if (loading) return <Spinner />;
+
     return (
       
       <View style={styles.container}>
