@@ -1,13 +1,20 @@
+// import { USER_ID, PASSWORD } from '@env';
 import React, { useReducer } from 'react';
 import axios from 'axios';
 import OpenFoodContext from './openfoodContext';
 import OpenFoodReducer from './openfoodReducer';
-import { SEARCH_ITEM , GET_ITEMS, POST_ITEMS, SET_LOADING } from '../types';
+import { SEARCH_ITEM , GET_ITEMS, POST_PRODUCT, GET_HISTORY, SET_LOADING } from '../types';
+
+// const userID = {USER_ID}
+//  console.log(userID);
+
 
 const OpenFoodState = props => {
     const initialState = {
-        item: {},
-        items: null,
+        item: null,
+        items: [],
+        product: {},
+        history: null,
         loading: false,
     };
 
@@ -18,12 +25,11 @@ const OpenFoodState = props => {
         setLoading(true);
 
         const res = await axios.get(
-            `https://world.openfoodfacts.org/api/v2/search?code=${index}&fields=code,product_name`
+            `https://world.openfoodfacts.org/api/v2/search?code=${index}&fields=id,product_name,brands,countries,creator,data_sources,image_thumb_url`
         );
-        console.log(res.data);
         dispatch({
             type: SEARCH_ITEM,
-            payload: res.data,
+            payload: res.data.products[0]
         });
         setLoading(false);
     };
@@ -33,27 +39,26 @@ const OpenFoodState = props => {
         setLoading(true);
 
         const res = await axios.get(
-            `https://world.openfoodfacts.org/api/v0/product/3017620422003`
+            `https://world.openfoodfacts.org/ingredients.json`
         );
-        // console.log(res.data.product);
         dispatch({
             type: GET_ITEMS,
-            payload: res.data.product,
+            payload: res.data.tags[15]
         });
 
         setLoading(false);
     };
 
-    // Post Items
-    const postItems = async () => {
+    // Post Product
+    const postProduct = async () => {
         setLoading(true);
 
         const res = await axios.post(
-            `https://us.openfoodfacts.org/cgi/product_jqm2.pl`
+            `https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=${index}&user_id=${USER_ID}&password=${PASSWORD}&brands=${brands}&labels=${labels}`
         );
         console.log(res.data.product);
         dispatch({
-            type: POST_ITEMS,
+            type: POST_PRODUCT,
             payload: res.data.product,
         });
 
@@ -71,6 +76,8 @@ const OpenFoodState = props => {
             value={{
                 item: state.item,
                 items: state.items,
+                product:state.product,
+                history:state.history,
                 loading: state.loading,
                 getItems,
                 searchItem
@@ -81,3 +88,5 @@ const OpenFoodState = props => {
 };
 
 export default OpenFoodState;
+
+

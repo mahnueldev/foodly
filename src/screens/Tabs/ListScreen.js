@@ -10,23 +10,27 @@ const ListScreen = () => {
   const { items, loading, getItems } = openfoodContext;
 
   useEffect(() => {
-    if (!loading && !items) {
+    // console.log(items);
+    if (!loading && !items) { 
       getItems();
     }
   }, [items, loading]);
 
   if (!items || loading) return <Spinner />;
 
-
   return (
     <View>
+       {/* {items.map((itemz) => { 
+        <List 
+        id ={itemz.id}
+        namez ={itemz.name}
+        
+        />
+       })} */}
       <FlatList
-        data={items.product}
-        ListHeaderComponent={List}
-        keyExtractor={items}
-        renderItem={({ items  }) => {
-          return <List items={items} />;
-        }}
+        data={items}
+        keyExtractor={item => item.id}
+        renderItem={List}
       />
       
     </View>

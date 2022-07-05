@@ -1,4 +1,4 @@
-import { SEARCH_ITEM , GET_ITEMS, POST_ITEMS, SET_LOADING } from '../types';
+import { SEARCH_ITEM , GET_ITEMS, POST_PRODUCT, GET_HISTORY, SET_LOADING } from '../types';
 
 export default (state, action) => {
     switch (action.type) {
@@ -8,16 +8,22 @@ export default (state, action) => {
                 item: action.payload,
                 loading: false,
             };
+        case GET_HISTORY:
+            return {
+                ...state,
+                history: action.payload,
+                loading: false,
+            };
         case GET_ITEMS:
             return {
                 ...state,
                 items: action.payload,
                 loading: false,
             };
-        case POST_ITEMS:
+        case POST_PRODUCT:
             return {
                 ...state,
-                items: action.payload,
+                product: action.payload,
                 loading: false,
             };
         case SET_LOADING:
