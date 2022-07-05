@@ -59,11 +59,8 @@ const ScanScreen = ({navigation}) => {
           onBarCodeScanned={scanned ? () =>navigation.navigate("ScanInfoScreen") && undefined : handleBarCodeScanned}
           style={{ height: 600, width: 600 }} />
       </View>
-      <View >
-      <ScanInfo item={item}/>
-      </View>
-
-      {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />}
+      
+      {/* {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />} */}
     </View>
   );
 }
