@@ -6,6 +6,13 @@ export const container = {
   paddingLeft: 20,
   paddingRight: 20,
 };
+export const image_Size = {
+  backgroundColor: "light-grey",
+  height: 200, 
+  width: 350, 
+  marginBottom: 40,
+  borderRadius: 34
+};
 export const font_H1 = {
   fontSize: 18,
   color: "red",
@@ -23,6 +30,26 @@ export const font_P2 = {
   fontSize: 14,
   color: "#cc6516",
   paddingTop: 15,
+};
+export const font_A = {
+  fontSize: 22,
+  fontWeight:'bold',
+  color: "#cc6516",
+  paddingTop: 15,
+  marginBottom: 20,
+  backgroundColor: "light-grey",
+  width: 400
+
+};
+export const font_B = {
+  fontSize: 18,
+  fontWeight:'semi-bold',
+  color: "#2d2d2d",
+  // paddingTop: 15,
+  marginBottom: 20,
+  backgroundColor: "light-grey",
+  width: 400
+
 };
 export const button = {
   alignItems: "center",

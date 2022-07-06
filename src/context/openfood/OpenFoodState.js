@@ -1,12 +1,10 @@
-// import { USER_ID, PASSWORD } from '@env';
+import { USER_ID, PASSWORD } from '@env';
 import React, { useReducer } from 'react';
 import axios from 'axios';
 import OpenFoodContext from './openfoodContext';
 import OpenFoodReducer from './openfoodReducer';
 import { SEARCH_ITEM , GET_ITEMS, POST_PRODUCT, GET_HISTORY, SET_LOADING } from '../types';
 
-// const userID = {USER_ID}
-//  console.log(userID);
 
 
 const OpenFoodState = props => {

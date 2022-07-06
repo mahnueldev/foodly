@@ -1,30 +1,28 @@
 import React, { useContext  } from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, Image } from "react-native";
 import OpenFoodContext from '../../context/openfood/openfoodContext'
-import {container} from '../../styling/globalStyles'
-import Spinner from '../../components/Spinner';
+import {container, font_A, font_B, font_P, image_Size} from '../../styling/globalStyles'
+// import Spinner from '../../components/Spinner';
 
-const ScanInfoScreen = () => {
+const ScanInfoScreen = ({route}) => {
   const openFoodContext = useContext(OpenFoodContext);
   const { searchItem, item, loading } = openFoodContext;
-
+  const {data} = route.params;
+  // if (loading) return <Spinner />                            
   searchItem(data);
-  if (loading) return <Spinner />;
-
-    return (
-      
+    return (       
+                 
       <View style={styles.container}>
-        
         {item &&<>
             <Image
-        source={item.image_thumb_url}
-        style={{height: 200, width: 350, borderRadius: 34}}
+        source= {item.image_thumb_url}
+        style={image_Size}
       />
-        <Text>{item.id}</Text>
-        <Text>{item.brands}</Text>
-        <Text>{item.creator}</Text>
-        <Text>{item.countries}</Text>
-        <Text>{item.data_sources}</Text>
+        <Text style={styles.font_P}> {item.id}</Text>
+        <Text style={styles.font_A}>{item.brands}</Text>
+        <Text style={styles.font_B}>{item.creator}</Text>
+        <Text style={styles.font_B}>{item.countries}</Text>
+        <Text style={styles.font_P}>{item.data_sources}</Text>
         </>  }
      
       </View>
@@ -32,7 +30,11 @@ const ScanInfoScreen = () => {
   };
   
   const styles= StyleSheet.create({
-      container
+      container,
+      image_Size,
+      font_A,
+      font_B,
+      font_P
     })
   
   export default ScanInfoScreen;
