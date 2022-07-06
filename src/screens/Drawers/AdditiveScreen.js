@@ -1,0 +1,38 @@
+
+import React, { useContext, useEffect } from "react";
+import { StyleSheet, View, FlatList, Text } from "react-native";
+import OpenFoodContext from "../../context/openfood/openfoodContext";
+import Spinner from "../../components/Spinner";
+import List from "../../components/List";
+import { container } from "../../styling/globalStyles";
+
+const AdditiveScreen = () => {
+  const openfoodContext = useContext(OpenFoodContext);
+  const { additives, loading, getAdditives } = openfoodContext;
+
+  useEffect(() => {
+    if (!loading && !additives) { 
+        getAdditives();
+    }
+  }, [additives, loading]);
+
+  if (!additives || loading) return <Spinner />;
+
+  return (
+    <View style={styles.container}>
+       
+      <FlatList
+        data={additives}
+        keyExtractor={item => item.id}
+        renderItem={List}
+      />
+      
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container,
+});
+
+export default AdditiveScreen;

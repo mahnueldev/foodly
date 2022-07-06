@@ -8,7 +8,6 @@ import HomeScreen from '../screens/Tabs/HomeScreen';
 import AddScreen from '../screens/Tabs/AddScreen';
 import ScanScreen from '../screens/Tabs/ScanScreen';
 import HistoryScreen from '../screens/Tabs/HistoryScreen';
-import ListScreen from '../screens/Tabs/ListScreen';
 
 
 const Tab = createBottomTabNavigator();
@@ -16,7 +15,7 @@ const Tab = createBottomTabNavigator();
 export default function TabStack() {
   return (
     <Tab.Navigator 
-    initialRouteName= "List"
+    initialRouteName= "Home"
  
     screenOptions={{
       // headerShown: false,
@@ -70,17 +69,7 @@ export default function TabStack() {
       ),
         }}
       />
-      <Tab.Screen name="List" component={ListScreen} 
-      options={{ 
-        tabBarIcon: ({color, size}) => (
-        <MaterialIcons
-        name="list"
-        size={size}
-        color={color}
-      /> 
-      ),
-        }}
-      />
+     
       </Tab.Navigator>
 );
 }

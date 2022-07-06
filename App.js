@@ -4,8 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OpenFoodState from './src/context/openfood/OpenFoodState'
 
 // Stack Screens
-import StackScreen from './src/screens/Stacks/StackScreen';
-import DoubleStack from './src/screens/Stacks/DoubleStack';
 import ScanInfoScreen from './src/screens/Stacks/ScanInfoScreen';
 
 // import AuthStack from './src/navigation/AuthStack';
@@ -26,8 +24,6 @@ export default function App() {
           <Stack.Navigator>
           {/* <Stack.Screen name="AuthStack" options={{ headerShown: false }}component={AuthStack} /> */}
           <Stack.Screen name="DrawerStack" options={{ headerShown: false }}component={DrawerStack} />
-          <Stack.Screen name="StackScreen" component={StackScreen} />
-          <Stack.Screen name="DoubleStack" component={DoubleStack} />
           <Stack.Screen name="ScanInfoScreen" component={ScanInfoScreen} options={{ headerShown: false }} />
 
       </Stack.Navigator>

@@ -37,8 +37,8 @@ export const font_A = {
   color: "#cc6516",
   paddingTop: 15,
   marginBottom: 20,
-  backgroundColor: "light-grey",
-  width: 400
+  
+  
 
 };
 export const font_B = {
@@ -47,8 +47,8 @@ export const font_B = {
   color: "#2d2d2d",
   // paddingTop: 15,
   marginBottom: 20,
-  backgroundColor: "light-grey",
-  width: 400
+  
+  
 
 };
 export const button = {
@@ -58,6 +58,15 @@ export const button = {
   borderRadius: 10,
   paddingHorizontal: 150,
   paddingVertical: 20,
+};
+export const button_2 = {
+  alignItems: "center",
+  backgroundColor: "#cc6516",
+  padding: 10,
+  borderRadius: 10,
+  paddingHorizontal: 150,
+  paddingVertical: 20,
+  marginTop: 50
 };
 export const field = {
   flexDirection: 'row',
@@ -70,4 +79,3 @@ export const field = {
   width: 400
 };
 
-// marginBottom: 25,

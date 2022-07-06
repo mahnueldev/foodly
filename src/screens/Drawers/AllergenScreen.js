@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect } from "react";
 import { StyleSheet, View, FlatList, Text } from "react-native";
 import OpenFoodContext from "../../context/openfood/openfoodContext";
@@ -5,30 +6,22 @@ import Spinner from "../../components/Spinner";
 import List from "../../components/List";
 import { container } from "../../styling/globalStyles";
 
-const ListScreen = () => {
+const AllergenScreen = () => {
   const openfoodContext = useContext(OpenFoodContext);
-  const { items, loading, getItems } = openfoodContext;
+  const { allergens, loading, getAllergens } = openfoodContext;
 
   useEffect(() => {
-    // console.log(items);
-    if (!loading && !items) { 
-      getItems();
+    if (!loading && !allergens) { 
+      getAllergens();
     }
-  }, [items, loading]);
+  }, [allergens, loading]);
 
-  if (!items || loading) return <Spinner />;
+  if (!allergens || loading) return <Spinner />;
 
   return (
-    <View>
-       {/* {items.map((itemz) => { 
-        <List 
-        id ={itemz.id}
-        namez ={itemz.name}
-        
-        />
-       })} */}
+    <View style={styles.container}>
       <FlatList
-        data={items}
+        data={allergens}
         keyExtractor={item => item.id}
         renderItem={List}
       />
@@ -41,4 +34,4 @@ const styles = StyleSheet.create({
   container,
 });
 
-export default ListScreen;
+export default AllergenScreen;

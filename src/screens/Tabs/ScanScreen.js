@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
@@ -55,7 +55,7 @@ const ScanScreen = ({navigation}) => {
           style={{ height: 600, width: 600 }} />
       </View>
       
-      {/* {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />} */}
+      {scanned && <Button title={'Scan again?'} onPress={() => setScanned(false)} color='tomato' />}
     </View>
   );
 }
@@ -78,7 +78,6 @@ const styles = StyleSheet.create({
     width: 600,
     overflow: 'hidden',
     borderRadius: 30,
-    backgroundColor: 'tomato'
   }
 });
 

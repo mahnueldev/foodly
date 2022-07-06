@@ -3,16 +3,14 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import OpenFoodContext from './openfoodContext';
 import OpenFoodReducer from './openfoodReducer';
-import { SEARCH_ITEM , GET_ITEMS, POST_PRODUCT, GET_HISTORY, SET_LOADING } from '../types';
-
-
+import { SEARCH_ITEM , GET_ALLERGENS, GET_ADDITIVES, POST_PRODUCT, SET_LOADING } from '../types';
 
 const OpenFoodState = props => {
     const initialState = {
         item: null,
-        items: [],
-        product: {},
-        history: null,
+        allergens: [],
+        additives: [],
+        product: [],
         loading: false,
     };
 
@@ -23,7 +21,7 @@ const OpenFoodState = props => {
         setLoading(true);
 
         const res = await axios.get(
-            `https://world.openfoodfacts.org/api/v2/search?code=${index}&fields=id,product_name,brands,countries,creator,data_sources,image_thumb_url`
+            `https://world.openfoodfacts.org/api/v2/search?code=${index}&fields=id,product_name,brands,nutrient_levels,nova_group,nutriscore_grade,creator,data_sources,image_thumb_url`
         );
         dispatch({
             type: SEARCH_ITEM,
@@ -32,16 +30,30 @@ const OpenFoodState = props => {
         setLoading(false);
     };
     
-    // Get Lists
-    const getItems = async () => {
+    // Get Allergens
+    const getAllergens = async () => {
         setLoading(true);
 
         const res = await axios.get(
-            `https://world.openfoodfacts.org/ingredients.json`
+            `https://world.openfoodfacts.org/allergens.json`
         );
         dispatch({
-            type: GET_ITEMS,
-            payload: res.data.tags[15]
+            type: GET_ALLERGENS,
+            payload: res.data.tags
+        });
+
+        setLoading(false);
+    };
+    // Get Additives
+    const getAdditives = async () => {
+        setLoading(true);
+
+        const res = await axios.get(
+            `https://world.openfoodfacts.org/additives.json`
+        );
+        dispatch({
+            type: GET_ADDITIVES,
+            payload: res.data.tags
         });
 
         setLoading(false);
@@ -73,12 +85,14 @@ const OpenFoodState = props => {
         <OpenFoodContext.Provider
             value={{
                 item: state.item,
-                items: state.items,
+                allergens: state.allergens,
+                additives: state.additives,
                 product:state.product,
-                history:state.history,
                 loading: state.loading,
-                getItems,
-                searchItem
+                getAllergens,
+                getAdditives,
+                searchItem,
+                postProduct
             }}>
             {props.children}
         </OpenFoodContext.Provider>

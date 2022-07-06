@@ -1,29 +1,29 @@
 import React from "react";
-import { Text, StyleSheet, View, Button } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
+import { container } from "../../styling/globalStyles";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-const HistoryScreen = ({navigation}) => {
+const getData = async () => {
+  try {
+    const jsonItem = await AsyncStorage.getItem('@storage_Key')
+    return jsonItem != null ? JSON.parse(jsonItem) : null;
+  } catch(e) {
+    // error reading value
+  }
+}
+getData();
+console.log(getData);
+const HistoryScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.fonts}>View you History</Text>
-      <Button 
-    onPress={() => navigation.navigate("DoubleStack")}
-    title="Press"/>
+      
     </View>
   );
 };
 
 const styles= StyleSheet.create({
-    container:{
-      flex: 1,
-      backgroundColor: '#2c2953',
-      alignItems: 'center',
-      justifyContent: 'center',  
-    },
-    fonts:{
-      fontSize: 50,
-      color: 'white'
-    }
+    container
   })
 
 export default HistoryScreen;
