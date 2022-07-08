@@ -4,11 +4,15 @@ import { StyleSheet, View, Image } from "react-native";
 
 import React from 'react'
 
-const OnboardingScreen = () => {
+const OnboardingScreen = ({navigation}) => {
+setTimeout(() => {
+  navigation.replace('Login')
+}, 3000);
+
   return (
     <View style={styles.container}>
       <View>
-        <Image source={require("../../assets/logo.png")}
+        <Image source={require("../../assets/images/logo.png")}
       style={{
       resizeMode: "contain"}}
       />

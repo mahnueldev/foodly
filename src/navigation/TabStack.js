@@ -2,6 +2,7 @@ import React from 'react'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
+import { RGBwhite, RGBlightblack, RGBorange} from '../styling/globalStyles'
 
 // Bottom Menu imports
 import HomeScreen from '../screens/Tabs/HomeScreen';
@@ -18,15 +19,20 @@ export default function TabStack() {
     initialRouteName= "Home"
  
     screenOptions={{
+      headerTitleAlign: 'center',
+      headerTitleStyle: {
+        // fontFamily: "LatoBlack"
+      },
       // headerShown: false,
       tabBarShowLabel: false,
-      tabBarStyle: {backgroundColor: '#fff'},
-      tabBarInactiveTintColor: '#8d8d8d',
-      tabBarActiveTintColor: '#cc6516',
+      tabBarStyle: {backgroundColor: RGBwhite},
+      tabBarInactiveTintColor: RGBlightblack,
+      tabBarActiveTintColor: RGBorange,
     }}
     >
       <Tab.Screen name="Scan" component={ScanScreen} 
       options={{ 
+        headerShown: false,
         tabBarIcon: ({color, size}) => (
         <MaterialIcons
         name="qr-code"
@@ -49,6 +55,14 @@ export default function TabStack() {
       />
       <Tab.Screen name="Home" component={HomeScreen} 
       options={{ 
+        headerStyle: {
+          backgroundColor: RGBorange,
+        },
+        headerTintColor: RGBwhite,
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontFamily: 'LatoBold'
+        },
       tabBarIcon: ({color, size}) => (
       <MaterialIcons
       name="dashboard"

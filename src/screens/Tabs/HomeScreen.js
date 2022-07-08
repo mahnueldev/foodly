@@ -1,30 +1,41 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, ScrollView, StyleSheet } from 'react-native'
 import Banner from '../../components/Banner'
-import ProjectImg from '../../assets/projectImg.png'
-import {container} from '../../styling/globalStyles'
+import ProjectImg from '../../assets/images/projectImg.png'
+import ProjectImg2 from '../../assets/images/projectImg2.png'
+import ProjectImg3 from '../../assets/images/pancake.png'
+import ProjectImg4 from '../../assets/images/veg.png'
+import {containerScroll} from '../../styling/globalStyles'
 // import ProjectImg2 from '../../assets/projectImg2.png'
 
 
 
 const HomeScreen = () => {
+  
   return (
     
-    <View style={styles.container}>
+    <ScrollView style={styles.containerScroll} showsVerticalScrollIndicator ={false}
+    showsHorizontalScrollIndicator={false}>
     <Banner 
-    src={ProjectImg}
-     text='duis anim occaecat integer sapien,v nulla lacus veniam, velit nulla consectetur nulla gravida sapien,' />
+    image = {ProjectImg}
+     text="Cornflakes is the world’s most famous breakfast cereal today." />
     <Banner 
-    src={ProjectImg}
-     text='duis anim occaecat integer sapien,v nulla lacus veniam, velit nulla consectetur nulla gravida sapien,' />
+    image={ProjectImg2}
+     text='McDonald’s cooked their fries in 93% beef fat (tallow) until 1990, when they switched to vegetable oil.' />
+    <Banner 
+    image={ProjectImg3}
+     text='The world’s most expensive pancake is available for $200.00 at Opus in the Printworks in England. Ingredients include Madagascan vanilla pods and 23-carat gold leaf' />
+    <Banner 
+    image={ProjectImg4}
+     text='Cucumbers are filled with amazing vitamins and minerals including Vitamins B1, B2, B3, B5 and B6, Vitamin C, calcium, iron, magnesium, potassium, zinc and even folic acid. Phew, that’s a lot!' />
     
-    
-    </View>
+    </ScrollView>
   )
 }
 
 const styles= StyleSheet.create({
-  container
+  containerScroll
+  
 })
 
 export default HomeScreen
