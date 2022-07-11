@@ -61,7 +61,7 @@ export default function TabStack() {
         headerTintColor: RGBwhite,
         headerTitleStyle: {
           fontWeight: 'bold',
-          fontFamily: 'LatoBold'
+          // fontFamily: 'LatoBold'
         },
       tabBarIcon: ({color, size}) => (
       <MaterialIcons

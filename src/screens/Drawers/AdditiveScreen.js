@@ -1,6 +1,6 @@
 
 import React, { useContext, useEffect } from "react";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import { StyleSheet, View, FlatList} from "react-native";
 import OpenFoodContext from "../../context/openfood/openfoodContext";
 import Spinner from "../../components/Spinner";
 import List from "../../components/List";
@@ -11,13 +11,10 @@ const AdditiveScreen = () => {
   const { additives, loading, getAdditives } = openfoodContext;
 
   useEffect(() => {
-    if (!loading && !additives) { 
         getAdditives();
-    }
-  }, [additives, loading]);
+  }, []);
 
-  if (!additives || loading) return <Spinner />;
-
+  if (loading) return <Spinner />;
   return (
     <View style={styles.container}>
        

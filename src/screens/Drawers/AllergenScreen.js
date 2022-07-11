@@ -1,6 +1,6 @@
 
 import React, { useContext, useEffect } from "react";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 import OpenFoodContext from "../../context/openfood/openfoodContext";
 import Spinner from "../../components/Spinner";
 import List from "../../components/List";
@@ -11,12 +11,10 @@ const AllergenScreen = () => {
   const { allergens, loading, getAllergens } = openfoodContext;
 
   useEffect(() => {
-    if (!loading && !allergens) { 
-      getAllergens();
-    }
-  }, [allergens, loading]);
+    getAllergens();
+}, []);
 
-  if (!allergens || loading) return <Spinner />;
+if (loading) return <Spinner />;
 
   return (
     <View style={styles.container}>

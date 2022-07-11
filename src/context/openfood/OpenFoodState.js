@@ -3,7 +3,7 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import OpenFoodContext from './openfoodContext';
 import OpenFoodReducer from './openfoodReducer';
-import { SEARCH_ITEM , GET_ALLERGENS, GET_ADDITIVES, POST_PRODUCT, SET_LOADING } from '../types';
+import {GET_ALLERGENS, SEARCH_ITEM ,  GET_ADDITIVES, POST_PRODUCT, SET_LOADING } from '../types';
 
 const OpenFoodState = props => {
     const initialState = {
@@ -21,7 +21,7 @@ const OpenFoodState = props => {
         setLoading(true);
 
         const res = await axios.get(
-            `https://world.openfoodfacts.org/api/v2/search?code=${index}&fields=id,product_name,brands,nutrient_levels,nova_group,nutriscore_grade,creator,data_sources,image_thumb_url`
+            `https://world.openfoodfacts.org/api/v2/search?code=${index}&fields=id,product_name,brands,nutrient_levels,nova_group,nutriscore_grade,creator,data_sources,image_url`
         );
         dispatch({
             type: SEARCH_ITEM,
@@ -64,7 +64,7 @@ const OpenFoodState = props => {
         setLoading(true);
 
         const res = await axios.post(
-            `https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=${index}&user_id=${USER_ID}&password=${PASSWORD}&brands=${brands}&labels=${labels}`
+            `https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=${barcode}&user_id=${USER_ID}&password=${PASSWORD}&brands=${brands}&labels=${labels}`
         );
         console.log(res.data.product);
         dispatch({
@@ -84,8 +84,8 @@ const OpenFoodState = props => {
     return (
         <OpenFoodContext.Provider
             value={{
-                item: state.item,
                 allergens: state.allergens,
+                item: state.item,
                 additives: state.additives,
                 product:state.product,
                 loading: state.loading,

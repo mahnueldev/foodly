@@ -44,53 +44,53 @@ export const image_Size = {
 // Text 
 export const font_P0 = {
   fontSize: 14,
-  fontFamily: 'LatoRegular',
+  // fontFamily: 'LatoRegular',
   color: RGB_lightblack,
   letterSpacing: 0.5
 };
 export const font_P1 = {
   fontSize: 14,
-  fontFamily: 'LatoRegular',
+  // fontFamily: 'LatoRegular',
   color: RGB_black 
 };
 export const font_P2 = {
   fontSize: 14,
-  fontFamily: 'LatoRegular',
+  // fontFamily: 'LatoRegular',
   color: RGB_white
 };
 export const font_P3 = {
   fontSize: 14,
-  fontFamily: 'LatoRegular',
+  // fontFamily: 'LatoRegular',
   color: RGB_orange 
 };
 export const font_H1 = {
   fontSize: 18,
-  fontFamily: 'LatoBold',
+  // fontFamily: 'LatoBold',
   color: RGB_black 
 };
 export const font_H2 = {
   fontSize: 18,
-  fontFamily: 'LatoBold',
+  // fontFamily: 'LatoBold',
   color: RGB_white
 };
 export const font_H3 = {
   fontSize: 18,
-  fontFamily: 'LatoBold',
+  // fontFamily: 'LatoBold',
   color: RGB_orange
 };
 export const font_A1 = {
   fontSize: 22,
-  fontFamily: 'LatoBold',
+  // fontFamily: 'LatoBold',
   color: RGB_black 
 };
 export const font_A2 = {
   fontSize: 22,
-  fontFamily: 'LatoBold',
+  // fontFamily: 'LatoBold',
   color: RGB_white
 };
 export const font_A3 = {
   fontSize: 22,
-  fontFamily: 'LatoBold',
+  // fontFamily: 'LatoBold',
   color: RGB_orange
 };
 

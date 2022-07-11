@@ -20,7 +20,7 @@ export default function DrawerStack() {
           drawerActiveTintColor: RGBwhite,
           drawerInactiveTintColor: RGBblack,
           drawerLabelStyle: {
-            fontFamily: 'Roboto-Medium',
+            // fontFamily: 'Roboto-Medium',
             fontSize: 15,
             
           },

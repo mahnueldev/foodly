@@ -2,16 +2,16 @@ import { SEARCH_ITEM , GET_ALLERGENS, POST_PRODUCT, SET_LOADING, GET_ADDITIVES }
 
 export default (state, action) => {
     switch (action.type) {
-        case SEARCH_ITEM :
-            return {
-                ...state,
-                item: action.payload,
-                loading: false,
-            };
         case GET_ALLERGENS:
             return {
                 ...state,
                 allergens: action.payload,
+                loading: false,
+            };
+        case SEARCH_ITEM :
+            return {
+                ...state,
+                item: action.payload,
                 loading: false,
             };
         case GET_ADDITIVES:
