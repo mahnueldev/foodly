@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 const AppStack = () => {
   return (
     <OpenFoodState>
-      <NavigationContainer>
+      
         <Stack.Navigator>
           <Stack.Screen
             name="DrawerStack"
@@ -23,7 +23,7 @@ const AppStack = () => {
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
-      </NavigationContainer>
+      
     </OpenFoodState>
   );
 };

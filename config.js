@@ -1,1 +1,0 @@
-import { USER_ID, PASSWORD } from '@dotenv';

@@ -1,17 +1,14 @@
 
 import { AuthProvider } from "./src/context/auth/authContext";
-import AppWrapper from "./src/navigation/AppWrapper";
+import Routes from "./src/navigation/Routes";
 
 function App() {
     
   return (
     <AuthProvider>
-       <AppWrapper />
+       <Routes />
     </AuthProvider>
   );
 }
 
 export default App;
-
-// <Stack.Screen name="AuthStack" options={{ headerShown: false }}component={AuthStack} />
-// {userToken !== null ?  <AppStack /> : <AuthStack />}

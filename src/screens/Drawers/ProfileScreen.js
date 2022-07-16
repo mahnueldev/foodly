@@ -1,27 +1,26 @@
-import React, { useContext } from "react";
+import {useContext} from "react";
 import { Text, StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import {
-  font_P1,
-  font_H1,
-  padSpace,
-} from "../../styling/globalStyles";
+import { font_P1, font_H1, padSpace } from "../../styling/globalStyles";
 import Profile from "../../assets/images/profileImg.png";
+
+import { auth } from "../../../firebase";
 import authContext from "../../context/auth/authContext";
 
 const ProfileScreen = (props) => {
   const AuthContext = useContext(authContext);
-  const { logout } = AuthContext;
-
+  const { user, logout } = AuthContext;
   return (
     <View style={styles.container}>
       {/* Top-section view */}
       <View style={styles.profilebg}>
         <Image style={styles.profileBox} source={Profile} />
-        <Text style={[styles.font_H1, styles.padSpace]}>Emmanuel</Text>
+        <Text style={[styles.font_H1, styles.padSpace]}>
+          {user.email}
+        </Text>
       </View>
       {/* Mid-Section view */}
       <DrawerContentScrollView style={{ backgroundColor: "#fff" }} {...props}>
@@ -33,9 +32,7 @@ const ProfileScreen = (props) => {
       {/* Bottom-view */}
       <View style={{ backgroundColor: "white" }}>
         <TouchableOpacity
-          onPress={() => {
-            logout();
-          }}
+          onPress={logout}
           style={{ paddingVertical: 100 }}
         >
           <View
@@ -45,7 +42,7 @@ const ProfileScreen = (props) => {
               marginLeft: 20,
             }}
           >
-            <Text style={styles.font_P1}>Sign Out</Text>
+            <Text style={styles.font_P1} onPress={() => logout()}>Sign Out</Text>
           </View>
         </TouchableOpacity>
       </View>

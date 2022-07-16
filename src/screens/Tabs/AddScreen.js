@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
-import { container, font_H2, button_2 } from "../../styling/globalStyles";
+import { container, font_H2, button_2, magSpace_T, align_cent  } from "../../styling/globalStyles";
 import InputField from "../../components/InputField";
 import OpenFoodContext from "../../context/openfood/openfoodContext";
 
@@ -14,7 +14,7 @@ const AddScreen = () => {
   
   return (
     <View style={styles.container}>
-      <View style={{marginTop: 60, alignItems: "center"}}>
+      <View style={[magSpace_T, align_cent ]}>
       <InputField label={"Code"} keyboardType="text" />
       <InputField label={"Brand"} keyboardType="text" />
       <InputField label={"Label"} keyboardType="text" />
@@ -33,7 +33,9 @@ const AddScreen = () => {
 const styles= StyleSheet.create({
     container,
     font_H2,
-    button_2
+    button_2,
+    magSpace_T,
+    align_cent 
   })
 
 export default AddScreen;

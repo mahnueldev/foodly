@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -12,20 +12,31 @@ import {
 } from "../../styling/globalStyles";
 import InputField from "../../components/InputField";
 import authContext from "../../context/auth/authContext";
+import { useNavigation } from "@react-navigation/native";
+import { auth } from "../../../firebase";
 
 const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const AuthContext = useContext(authContext);
   const { login } = AuthContext;
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        <InputField label={"Email ID"} keyboardType="email-address" />
+        <InputField
+          label={"Email ID"}
+          keyboardType="email-address"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+        />
 
         <InputField
           label={"Password"}
           inputType="password"
           fieldButtonFunction={() => {}}
+          value={password}
+          onChangeText={(text) => setPassword(text)}
         />
 
         <TouchableOpacity style={styles.magSpace_TB}>
@@ -34,7 +45,7 @@ const LoginScreen = ({ navigation }) => {
 
         <TouchableOpacity
           onPress={() => {
-            login();
+            login(email, password);
           }}
           style={[styles.button, styles.magSpace_TB]}
         >
