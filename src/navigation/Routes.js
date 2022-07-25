@@ -4,23 +4,25 @@ import Spinner from "../components/Spinner";
 import AuthStack from "./AuthStack";
 import AppStack from "./AppStack";
 import { NavigationContainer } from "@react-navigation/native";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
+
 const Routes = () => {
   const AuthContext = useContext(authContext);
   const { user, setUser } = AuthContext;
   const [initializing, setInitializing] = useState(true);
 
-const onAuthStateChanged =(user) => {
+const currentUser =(user) => {
   setUser(user);
   if (initializing) setInitializing(false);
 }
 
   useEffect(() => {
-    const subscriber = auth.onAuthStateChanged(onAuthStateChanged);
+    const subscriber = onAuthStateChanged(auth, currentUser);
     return subscriber;
   }, []);
 
- if (initializing) return null
+ if (initializing) return <Spinner />
 
   return (
     <NavigationContainer>

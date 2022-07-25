@@ -3,7 +3,7 @@ import Svg, { Path, Circle } from "react-native-svg";
 import { View, StyleSheet, Text} from 'react-native';
 import { font_H1, font_P1  } from "../styling/globalStyles";
 
-const NotFound = ({height, width}) => (
+const NotFound = ({height, width, heading, subheading}) => (
   <View style={styles.container}>
   <Svg 
   height={height} width={width} viewBox="0 0 100 100">
@@ -27,8 +27,8 @@ const NotFound = ({height, width}) => (
       fill="#263238"
     />
   </Svg>
-  <Text style ={font_H1}>Oooops!</Text>
-  <Text style ={font_P1}>Didn't find anything</Text>
+  <Text style ={font_H1}>{heading}</Text>
+  <Text style ={font_P1}>{subheading}</Text>
   </View>
 );
 

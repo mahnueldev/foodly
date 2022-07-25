@@ -2,18 +2,20 @@ import React from 'react'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import { RGBwhite, RGBlightblack, RGBorange} from '../styling/globalStyles'
+import { RGBwhite, RGBlightblack, RGBorange, button_3, font_P2} from '../styling/globalStyles'
+import {TouchableOpacity,Text, StyleSheet} from 'react-native';
 
 // Bottom Menu imports
 import HomeScreen from '../screens/Tabs/HomeScreen';
 import AddScreen from '../screens/Tabs/AddScreen';
 import ScanScreen from '../screens/Tabs/ScanScreen';
 import HistoryScreen from '../screens/Tabs/HistoryScreen';
-
+import { useNavigation } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
 export default function TabStack() {
+  const navigation = useNavigation();
   return (
     <Tab.Navigator 
     initialRouteName= "Home"
@@ -72,7 +74,7 @@ export default function TabStack() {
     ),
       }}
       />
-      <Tab.Screen name="Add" component={AddScreen} 
+      <Tab.Screen name="List" component={AddScreen} 
       options={{ 
         tabBarIcon: ({color, size}) => (
         <MaterialIcons
@@ -81,9 +83,21 @@ export default function TabStack() {
         color={color}
       /> 
       ),
+      headerRight: () => (
+        <TouchableOpacity
+        style={button_3}
+        onPress={() => navigation.navigate("AddNewScreen")}>
+          <Text style={font_P2}>Add</Text>
+        </TouchableOpacity>
+      )
         }}
       />
      
       </Tab.Navigator>
 );
 }
+
+const styles = StyleSheet.create({
+  button_3,
+  font_P2
+});

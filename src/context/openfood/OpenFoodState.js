@@ -64,12 +64,12 @@ const OpenFoodState = props => {
         setLoading(true);
 
         const res = await axios.post(
-            `https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=${barcode}&user_id=${USER_ID}&password=${PASSWORD}&brands=${brands}&labels=${labels}`
+            `https://us.openfoodfacts.org/cgi/product_jqm2.pl?code=${code}&user_id=elmahnuel&password=22344566&brands=${brand}&labels=${label}`
         );
         console.log(res.data.product);
         dispatch({
             type: POST_PRODUCT,
-            payload: res.data.product,
+            payload: res.data.products,
         });
 
         setLoading(false);

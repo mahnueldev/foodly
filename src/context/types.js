@@ -3,5 +3,3 @@ export const SEARCH_ITEM = 'SEARCH_ITEM';
 export const GET_ALLERGENS = 'GET_ALLERGENS';
 export const GET_ADDITIVES = 'GET_ADDITIVES';
 export const POST_PRODUCT = 'POST_PRODUCT';
-export const SET_SCANNED = 'SET_SCANNED';
-export const SET_HASPERMISSION = 'SET_HASPERMISSION';

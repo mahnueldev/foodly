@@ -3,7 +3,9 @@ const RGB_orange = "#cc6516";
 const RGB_white = "#fff";
 const RGB_black = "#71717A";
 const RGB_lightblack = "#8D8D8D";
-const RGB_lightgrey = "#E6E6E6";
+const RGB_lightgrey = "#EFEFEF";
+const RGB_grey = "#E6E6E6";
+
 
 //  Color Global export
 export const RGBorange = "#cc6516";
@@ -57,6 +59,16 @@ export const box4 = {
   height: 50,
   backgroundColor: RGBorange,
   marginLeft: 5,
+};
+export const box5 = {
+  backgroundColor: RGBlightgrey,
+  borderRadius: 10,
+  margin: 10,
+ paddingLeft:50,
+  paddingHorizontal: 200,
+  paddingVertical: 20,
+  
+
 };
 export const image_Size = {
   backgroundColor: RGB_lightgrey,
@@ -142,6 +154,15 @@ export const button_2 = {
   marginTop: 50,
   backgroundColor: RGB_orange,
 };
+export const button_3 = {
+  alignItems: "center",
+  padding: 10,
+  borderRadius: 10,
+  paddingHorizontal: 25,
+  paddingVertical: 10,
+  marginRight: 20,
+  backgroundColor: RGB_orange,
+};
 
 // Input
 export const field = {
@@ -153,6 +174,9 @@ export const field = {
   paddingHorizontal: 40,
   marginHorizontal: 30,
   paddingVertical: 15,
+  borderWidth: 1,
+  borderColor: RGB_grey,
+  
 };
 
 // Spacing
@@ -192,6 +216,9 @@ export const magSpace_LR = {
 export const align_cent = {
   alignItems: "center",
 };
+export const align_start = {
+  alignItems: "flex-start",
+};
 export const justify_cent = {
   justifyContent: "center",
 };
@@ -202,3 +229,7 @@ export const border = {
   paddingLeft: 20,
   paddingRight: 20,
 };
+
+export const flex = {
+  flex: 1
+}

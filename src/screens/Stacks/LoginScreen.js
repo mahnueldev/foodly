@@ -12,8 +12,7 @@ import {
 } from "../../styling/globalStyles";
 import InputField from "../../components/InputField";
 import authContext from "../../context/auth/authContext";
-import { useNavigation } from "@react-navigation/native";
-import { auth } from "../../../firebase";
+
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState(null);
@@ -28,7 +27,8 @@ const LoginScreen = ({ navigation }) => {
           label={"Email ID"}
           keyboardType="email-address"
           value={email}
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={(email) => setEmail(email)}
+          rules ={{required: true}}
         />
 
         <InputField
@@ -37,9 +37,13 @@ const LoginScreen = ({ navigation }) => {
           fieldButtonFunction={() => {}}
           value={password}
           onChangeText={(text) => setPassword(text)}
+          rules ={{required: true}}
         />
 
-        <TouchableOpacity style={styles.magSpace_TB}>
+        <TouchableOpacity 
+        style={styles.magSpace_TB}
+        onPress={() => navigation.navigate("ForgotPassword")}
+        >
           <Text style={styles.font_P1}>Forgot Password?</Text>
         </TouchableOpacity>
 

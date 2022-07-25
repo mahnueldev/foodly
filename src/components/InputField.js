@@ -9,7 +9,8 @@ export default function InputField({
   fieldButtonLabel,
   fieldButtonFunction,
   value,
-  onChangeText
+  onChangeText,
+  rules ={}
 }) {
   return (
     <View
@@ -22,6 +23,7 @@ export default function InputField({
           secureTextEntry={true}
           value={value}
           onChangeText={onChangeText}
+          rules={rules}
         />
       ) : (
         <TextInput

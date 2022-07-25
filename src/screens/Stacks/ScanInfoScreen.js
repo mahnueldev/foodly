@@ -34,30 +34,47 @@ import {
 import Spinner from "../../components/Spinner";
 import NotFound from '../../components/NotFound'
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import {ITEM_STORAGE_KEY} from "../../../const";
 
 const ScanInfoScreen = ({ route, navigation }) => {
   const openFoodContext = useContext(OpenFoodContext);
   const { searchItem, item, loading } = openFoodContext;
   const { barcode } = route.params;
+  // navigation.navigate("History", { barcode: data });
+  
   
   const storeData = async (item) => {
-    try {
-      const searchInfo= JSON.stringify(item);
-      await AsyncStorage.setItem("searchInfo ", JSON.stringify(searchInfo));
-    } catch (e) {
-      // saving error
-    }
+    if(!(item)) return;
+    let Storage = JSON.parse(await AsyncStorage.getItem(ITEM_STORAGE_KEY))
+
+    if(!Storage) Storage = [];
+    // navigation.navigate("History", { barcode: data });
+      Storage.push({
+        id: new Date().getTime(),
+        item,
+        barcode
+        
+    });
+      await AsyncStorage.setItem(ITEM_STORAGE_KEY, JSON.stringify(Storage));
+
+   
   };
 
   useEffect(() => {
       searchItem(barcode);
-      storeData();
+    
       
     
   }, []);
 
   if (loading) return <Spinner /> ;
-  if (!item && !loading) return <NotFound height='100' width='100' />;
+  if (!item && !loading) return (
+  <NotFound height='100' width='100' 
+  heading='Ooops!'
+  subheading= "Didn't find anything"
+  />
+  )
+  ;
 
   return (
     // cannot call image     //
