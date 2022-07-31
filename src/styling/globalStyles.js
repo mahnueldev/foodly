@@ -176,7 +176,6 @@ export const field = {
   paddingVertical: 15,
   borderWidth: 1,
   borderColor: RGB_grey,
-  
 };
 
 // Spacing
@@ -222,6 +221,7 @@ export const align_start = {
 export const justify_cent = {
   justifyContent: "center",
 };
+
 export const border = {
   borderTop: 3,
   borderWidth: 1,

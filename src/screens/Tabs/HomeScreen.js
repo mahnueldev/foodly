@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import Banner from "../../components/Banner";
 import ProjectImg from "../../assets/images/projectImg.png";
 import ProjectImg2 from "../../assets/images/projectImg2.png";

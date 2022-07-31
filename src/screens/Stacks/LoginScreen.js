@@ -28,16 +28,15 @@ const LoginScreen = ({ navigation }) => {
           keyboardType="email-address"
           value={email}
           onChangeText={(email) => setEmail(email)}
-          rules ={{required: true}}
+          // rules ={{required: true}}
         />
 
         <InputField
           label={"Password"}
           inputType="password"
-          fieldButtonFunction={() => {}}
           value={password}
           onChangeText={(text) => setPassword(text)}
-          rules ={{required: true}}
+          // rules ={{required: true}}
         />
 
         <TouchableOpacity 

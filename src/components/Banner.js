@@ -6,7 +6,7 @@ import {container, font_P0, padSpace, magSpace_TB, RGBverylightgrey} from '../st
 
  const Banner =({
   image,
-  text = 'bannertext'
+  text = 'Put text here'
 
 }) =>{
   return (

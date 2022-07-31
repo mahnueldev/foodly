@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from "react";
+import React, { useContext, useEffect } from 'react';
 import {
   Text,
   StyleSheet,
@@ -6,8 +6,8 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-} from "react-native";
-import OpenFoodContext from "../../context/openfood/openfoodContext";
+} from 'react-native';
+import OpenFoodContext from '../../context/openfood/openfoodContext';
 import {
   container,
   font_A1,
@@ -30,51 +30,45 @@ import {
   align_cent,
   justify_cent,
   border,
-} from "../../styling/globalStyles";
-import Spinner from "../../components/Spinner";
-import NotFound from '../../components/NotFound'
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import {ITEM_STORAGE_KEY} from "../../../const";
+} from '../../styling/globalStyles';
+import Spinner from '../../components/Spinner';
+import NotFound from '../../components/NotFound';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { ITEM_STORAGE_KEY } from '../../../const';
 
 const ScanInfoScreen = ({ route, navigation }) => {
   const openFoodContext = useContext(OpenFoodContext);
   const { searchItem, item, loading } = openFoodContext;
   const { barcode } = route.params;
-  // navigation.navigate("History", { barcode: data });
-  
-  
+
   const storeData = async (item) => {
-    if(!(item)) return;
-    let Storage = JSON.parse(await AsyncStorage.getItem(ITEM_STORAGE_KEY))
+    if (!item) return;
+    let Storage = JSON.parse(await AsyncStorage.getItem(ITEM_STORAGE_KEY));
 
-    if(!Storage) Storage = [];
-    // navigation.navigate("History", { barcode: data });
-      Storage.push({
-        id: new Date().getTime(),
-        item,
-        barcode
-        
+    if (!Storage) Storage = [];
+    Storage.push({
+      id: new Date().getTime(),
+      item,
+      barcode,
     });
-      await AsyncStorage.setItem(ITEM_STORAGE_KEY, JSON.stringify(Storage));
-
-   
+    await AsyncStorage.setItem(ITEM_STORAGE_KEY, JSON.stringify(Storage));
   };
 
   useEffect(() => {
-      searchItem(barcode);
-    
-      
-    
-  }, []);
+    searchItem(barcode);
+    storeData ();
+  }, [item]);
 
-  if (loading) return <Spinner /> ;
-  if (!item && !loading) return (
-  <NotFound height='100' width='100' 
-  heading='Ooops!'
-  subheading= "Didn't find anything"
-  />
-  )
-  ;
+  if (loading) return <Spinner />;
+  if (!item && !loading)
+    return (
+      <NotFound
+        height='100'
+        width='100'
+        heading='Ooops!'
+        subheading="Didn't find anything"
+      />
+    );
 
   return (
     // cannot call image     //
@@ -130,7 +124,7 @@ const ScanInfoScreen = ({ route, navigation }) => {
                 <View style={styles.font_H1}>
                   {Object.keys(item.nutrient_levels).map((nutrient) => (
                     <Text key={nutrient} style={styles.font_H1}>
-                      {nutrient}:{" "}
+                      {nutrient}:{' '}
                       <Text style={styles.font_A3}>
                         {item.nutrient_levels[nutrient]}
                       </Text>
@@ -143,6 +137,16 @@ const ScanInfoScreen = ({ route, navigation }) => {
                       possible positive contribution to the grade could not be
                       taken into account.
                     </Text>
+                  </View>
+                  <View>
+                    {Object.keys(item.ingredients).map((id) => (
+                      <Text key={id} style={styles.font_H1}>
+                        {id}:{' '}
+                        <Text style={styles.font_A3}>
+                        {item.ingredients[id]}
+                        </Text>
+                      </Text>
+                    ))}
                   </View>
                 </View>
               </View>

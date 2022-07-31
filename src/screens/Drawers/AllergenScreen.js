@@ -16,12 +16,21 @@ const AllergenScreen = () => {
 
 if (loading) return <Spinner />;
 
+
+
   return (
     <View style={styles.container}>
       <FlatList
         data={allergens}
         keyExtractor={item => item.id}
         renderItem={List}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        maxToRenderPerBatch ={20}
+        windowSize={10}
+        updateCellsBatchingPeriod={100}
+        initialNumToRender={2}
+        removeClippedSubviews={true}
       />
       
     </View>

@@ -22,6 +22,8 @@ const AdditiveScreen = () => {
         data={additives}
         keyExtractor={item => item.id}
         renderItem={List}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
       />
       
     </View>
