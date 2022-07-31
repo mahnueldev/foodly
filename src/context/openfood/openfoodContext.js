@@ -1,4 +1,4 @@
 import {createContext} from 'react';
 
-const openfoodContext = createContext();
+const openfoodContext = createContext([]);
 export default openfoodContext;

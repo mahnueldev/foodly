@@ -6718,7 +6718,7 @@ rc@^1.0.1, rc@^1.1.6, rc@~1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-devtools-core@4.14.0, react-devtools-core@^4.23.0:
+react-devtools-core@4.13.5, react-devtools-core@4.14.0, react-devtools-core@^4.23.0:
   version "4.14.0"
   resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-4.14.0.tgz#4b9dc50937ed4cf4c04fa293430cac62d829fa8b"
   integrity sha512-cE7tkSUkGCDxTA79pntDGJCBgzNN/XxA3kgPdXujdfSfEfVhzrItQIEsN0kCN/hJJACDvH2Q8p5+tJb/K4B3qA==
@@ -6726,16 +6726,16 @@ react-devtools-core@4.14.0, react-devtools-core@^4.23.0:
     shell-quote "^1.6.1"
     ws "^7"
 
-react-devtools@4.14.0:
-  version "4.14.0"
-  resolved "https://registry.yarnpkg.com/react-devtools/-/react-devtools-4.14.0.tgz#d6ff008be6c4fe26b72b3aea3b295e65d590527b"
-  integrity sha512-zGb3Vt1fvYCUYuK4cmpaGWyCwwsioX8YqBZPUGL3QTLFoB/glUsgOsZWviiyhnfBuhbp5iiMQz0VBKfms9pB2w==
+react-devtools@<4.14.0:
+  version "4.13.5"
+  resolved "https://registry.yarnpkg.com/react-devtools/-/react-devtools-4.13.5.tgz#918426ed4802d24e743a675c653d9802c74bf93e"
+  integrity sha512-7Q8ZkhXmN+hbtGc9mOMJUhk4yio8fmX6SOUG1VohDVvOATQPIm7EPNW7ZhzQG0S6k03JpzbcqW9qITGM8v6shw==
   dependencies:
     cross-spawn "^5.0.1"
     electron "^11.1.0"
     ip "^1.1.4"
     minimist "^1.2.3"
-    react-devtools-core "4.14.0"
+    react-devtools-core "4.13.5"
     update-notifier "^2.1.0"
 
 react-dom@17.0.2:
@@ -6771,11 +6771,6 @@ react-native-codegen@^0.0.17:
     flow-parser "^0.121.0"
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
-
-react-native-debugger-utils@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-debugger-utils/-/react-native-debugger-utils-1.0.0.tgz#693fa892f7cb63adbf3a92785e692062ae16cb94"
-  integrity sha512-pMQax2hwCf+Pp8K2LAXVma1D3cWEaIrocRUdflAPvhvP15e3nYG6gJ69NwEXMthtqMUP7fy5Fy9s8t+zBncjbw==
 
 react-native-dotenv@^3.3.1:
   version "3.3.1"

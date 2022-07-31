@@ -1,3 +1,5 @@
+import { StyleSheet } from 'react-native'
+
 // Variable
 const RGB_orange = "#cc6516";
 const RGB_white = "#fff";
@@ -233,3 +235,30 @@ export const border = {
 export const flex = {
   flex: 1
 }
+
+const s = StyleSheet.create({
+  container,
+  image_Size,
+  font_A1,
+  font_A3,
+  font_B,
+  font_P1,
+  font_P3,
+  font_H2,
+  font_H1,
+  button_2,
+  magSpace_TB,
+  magSpace_T,
+  magSpace_B,
+  box,
+  box2,
+  box3,
+  box4,
+  RGBgreen,
+  align_cent,
+  justify_cent,
+  border,
+})
+
+export default s;
+

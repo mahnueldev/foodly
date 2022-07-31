@@ -19,7 +19,7 @@ const ProfileScreen = (props) => {
       <View style={styles.profilebg}>
         <Image style={styles.profileBox} source={Profile} />
         <Text style={[styles.font_H1, styles.padSpace]}>
-          {user.email}
+          {'user.email'}
         </Text>
       </View>
       {/* Mid-Section view */}

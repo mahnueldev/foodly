@@ -1,24 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react'
 import {
   Text,
-  StyleSheet,
   View,
   ScrollView,
   Image,
   TouchableOpacity,
-} from 'react-native';
-import OpenFoodContext from '../../context/openfood/openfoodContext';
-import {
-  container,
-  font_A1,
-  font_A3,
-  font_B,
-  font_P1,
-  font_P3,
-  font_H1,
-  font_H2,
+} from 'react-native'
+import OpenFoodContext from '../../context/openfood/openfoodContext'
+import styles, {
   image_Size,
-  button_2,
   magSpace_TB,
   magSpace_T,
   magSpace_B,
@@ -26,49 +16,54 @@ import {
   box2,
   box3,
   box4,
-  RGBgreen,
   align_cent,
   justify_cent,
   border,
-} from '../../styling/globalStyles';
-import Spinner from '../../components/Spinner';
-import NotFound from '../../components/NotFound';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ITEM_STORAGE_KEY } from '../../../const';
+} from '../../styling/globalStyles'
+import Spinner from '../../components/Spinner'
+import NotFound from '../../components/NotFound'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { ITEM_STORAGE_KEY } from '../../../const'
 
 const ScanInfoScreen = ({ route, navigation }) => {
-  const openFoodContext = useContext(OpenFoodContext);
-  const { searchItem, item, loading } = openFoodContext;
-  const { barcode } = route.params;
+  const openFoodContext = useContext(OpenFoodContext)
+  const { searchItem, item, loading } = openFoodContext
+  const { barcode } = route.params
 
-  const storeData = async (item) => {
-    if (!item) return;
-    let Storage = JSON.parse(await AsyncStorage.getItem(ITEM_STORAGE_KEY));
+  const storeData = async (barcode, product) => {
+    if (!(barcode && product)) return;
+    let Storage = JSON.parse(await AsyncStorage.getItem(ITEM_STORAGE_KEY))
 
-    if (!Storage) Storage = [];
+    if (!Storage) Storage = []
     Storage.push({
       id: new Date().getTime(),
-      item,
       barcode,
-    });
-    await AsyncStorage.setItem(ITEM_STORAGE_KEY, JSON.stringify(Storage));
-  };
+      product
+    })
+    await AsyncStorage.setItem(ITEM_STORAGE_KEY, JSON.stringify(Storage))
+  }
 
   useEffect(() => {
-    searchItem(barcode);
-    storeData ();
-  }, [item]);
+    searchItem(barcode)
+  }, [])
 
-  if (loading) return <Spinner />;
+  useEffect(()=> {
+    if(loading || !item) return;
+
+    storeData(barcode, item)
+  }, [item])
+
+  if (loading) return <Spinner/>
+
   if (!item && !loading)
     return (
       <NotFound
-        height='100'
-        width='100'
-        heading='Ooops!'
+        height="100"
+        width="100"
+        heading="Ooops!"
         subheading="Didn't find anything"
       />
-    );
+    )
 
   return (
     // cannot call image     //
@@ -143,7 +138,7 @@ const ScanInfoScreen = ({ route, navigation }) => {
                       <Text key={id} style={styles.font_H1}>
                         {id}:{' '}
                         <Text style={styles.font_A3}>
-                        {item.ingredients[id]}
+                          {item.ingredients[id]}
                         </Text>
                       </Text>
                     ))}
@@ -165,31 +160,7 @@ const ScanInfoScreen = ({ route, navigation }) => {
         </>
       )}
     </View>
-  );
-};
+  )
+}
 
-const styles = StyleSheet.create({
-  container,
-  image_Size,
-  font_A1,
-  font_A3,
-  font_B,
-  font_P1,
-  font_P3,
-  font_H2,
-  font_H1,
-  button_2,
-  magSpace_TB,
-  magSpace_T,
-  magSpace_B,
-  box,
-  box2,
-  box3,
-  box4,
-  RGBgreen,
-  align_cent,
-  justify_cent,
-  border,
-});
-
-export default ScanInfoScreen;
+export default ScanInfoScreen

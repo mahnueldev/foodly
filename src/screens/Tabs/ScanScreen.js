@@ -22,7 +22,6 @@ const ScanScreen = ({ navigation }) => {
   const handleBarCodeScanned = ({ data }) => {
     setScanned(true);
     navigation.navigate("ScanInfoScreen", { barcode: data });
-    
   };
 
   // Check permissions and return the screens

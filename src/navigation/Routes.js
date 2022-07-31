@@ -9,24 +9,25 @@ import { auth } from "../../firebase";
 
 const Routes = () => {
   const AuthContext = useContext(authContext);
-  const { user, setUser } = AuthContext;
+  // const { user, setUser } = AuthContext;
   const [initializing, setInitializing] = useState(true);
 
 const currentUser =(user) => {
-  setUser(user);
+  // setUser(user);
   if (initializing) setInitializing(false);
 }
 
   useEffect(() => {
-    const subscriber = onAuthStateChanged(auth, currentUser);
-    return subscriber;
+    // const subscriber = onAuthStateChanged(auth, currentUser);
+    // return subscriber;
   }, []);
 
- if (initializing) return <Spinner />
+ // if (initializing) return <Spinner />
 
   return (
     <NavigationContainer>
-      {user ? <AppStack /> : <AuthStack />}
+      <AppStack/>
+      {/*{user ? <AppStack /> : <AuthStack />}*/}
     </NavigationContainer>
   );
 };
