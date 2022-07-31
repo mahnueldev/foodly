@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {
   Text,
   View,
@@ -133,7 +133,7 @@ const ScanInfoScreen = ({ route, navigation }) => {
                       taken into account.
                     </Text>
                   </View>
-                  <View>
+                  {/*<View>
                     {Object.keys(item.ingredients).map((id) => (
                       <Text key={id} style={styles.font_H1}>
                         {id}:{' '}
@@ -142,7 +142,7 @@ const ScanInfoScreen = ({ route, navigation }) => {
                         </Text>
                       </Text>
                     ))}
-                  </View>
+                  </View>*/}
                 </View>
               </View>
               <View style={[magSpace_TB, box]}>
