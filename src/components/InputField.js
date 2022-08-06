@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, TextInput, StyleSheet} from 'react-native';
-import {field} from '../styling/globalStyles'
+import {View, Text, TouchableOpacity, TextInput} from 'react-native';
+import s from '../styling/globalStyles'
 
 export default function InputField({
   label,
@@ -14,7 +14,7 @@ export default function InputField({
 }) {
   return (
     <View
-      style={styles.field}>
+      style={s.field}>
       {inputType == 'password' ? (
         <TextInput
           placeholder={label}
@@ -41,7 +41,3 @@ export default function InputField({
   );
 }
 
-const styles= StyleSheet.create({
-  field
- 
-})

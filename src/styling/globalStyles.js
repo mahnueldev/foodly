@@ -1,5 +1,8 @@
+import { StyleSheet } from 'react-native'
+
 // Variable
 const RGB_orange = "#cc6516";
+const RGB_lightorange = "#DCB39C";
 const RGB_white = "#fff";
 const RGB_black = "#71717A";
 const RGB_lightblack = "#8D8D8D";
@@ -61,11 +64,15 @@ export const box4 = {
   marginLeft: 5,
 };
 export const box5 = {
+  flext: 1,
   backgroundColor: RGBlightgrey,
   borderRadius: 10,
-  margin: 10,
- paddingLeft:50,
-  paddingHorizontal: 200,
+  marginBottom: 10,
+  paddingLeft: 30,
+  paddingRight: 200,
+//  padding:50,
+ width: '100%',
+  // paddingHorizontal: 100,
   paddingVertical: 20,
   
 
@@ -140,26 +147,25 @@ export const font_B = {
 export const button = {
   alignItems: "center",
   backgroundColor: RGB_orange,
-  padding: 10,
   borderRadius: 10,
-  paddingHorizontal: 130,
+  paddingHorizontal: 100,
   paddingVertical: 15,
 };
 export const button_2 = {
   alignItems: "center",
   padding: 10,
   borderRadius: 10,
-  paddingHorizontal: 150,
+  paddingHorizontal: 100,
   paddingVertical: 15,
   marginTop: 50,
   backgroundColor: RGB_orange,
 };
 export const button_3 = {
   alignItems: "center",
-  padding: 10,
+  // padding: 10,
   borderRadius: 10,
-  paddingHorizontal: 25,
-  paddingVertical: 10,
+  paddingHorizontal: 20,
+  paddingVertical:5,
   marginRight: 20,
   backgroundColor: RGB_orange,
 };
@@ -172,7 +178,7 @@ export const field = {
   marginBottom: 45,
   borderRadius: 10,
   paddingHorizontal: 40,
-  marginHorizontal: 30,
+  marginHorizontal: -10,
   paddingVertical: 15,
   borderWidth: 1,
   borderColor: RGB_grey,
@@ -223,9 +229,7 @@ export const justify_cent = {
 };
 
 export const border = {
-  borderTop: 3,
-  borderWidth: 1,
-  borderColor: RGBorange,
+  backgroundColor: RGB_lightorange,
   paddingLeft: 20,
   paddingRight: 20,
 };
@@ -233,3 +237,55 @@ export const border = {
 export const flex = {
   flex: 1
 }
+
+export const barcodebox = {
+  alignItems: "center",
+  justifyContent: "center",
+  height: 500,
+  width: 600,
+  overflow: "hidden",
+  borderRadius: 30,
+}
+
+const s = StyleSheet.create({
+  container,
+  container_2,
+  containerScroll,
+  image_Size,
+  font_A1,
+  font_A3,
+  font_B,
+  font_P1,
+  font_P2,
+  font_P3,
+  font_H2,
+  font_H1,
+  button,
+  button_2,
+  button_3,
+  padSpace,
+  padSpace_TB,
+  padSpace_LR,
+  magSpace,
+  magSpace_TB,
+  magSpace_TB_X,
+  magSpace_T,
+  magSpace_B,
+  magSpace_LR,
+  box,
+  box2,
+  box3,
+  box4,
+  box5,
+  flex,
+  align_cent,
+  justify_cent,
+  border,
+  field, 
+  RGBgreen,
+  RGB_orange,
+  RGB_lightgrey,
+  barcodebox
+})
+
+export default s;

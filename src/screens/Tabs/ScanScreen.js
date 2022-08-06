@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import s from "../../styling/globalStyles";
+import { TouchableOpacity } from "react-native-gesture-handler";
+
 
 const ScanScreen = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -28,15 +31,15 @@ const ScanScreen = ({ navigation }) => {
   // Check permissions and return the screens
   if (hasPermission === null) {
     return (
-      <View style={styles.container}>
-        <Text>Requesting for camera permission</Text>
+      <View style={[s.container,s.justify_cent]}>
+        <Text style={s.font_H1}>Requesting for camera permission</Text>
       </View>
     );
   }
   if (hasPermission === false) {
     return (
-      <View style={styles.container}>
-        <Text style={{ margin: 10 }}>No access to camera</Text>
+      <View style={s.container}>
+        <Text style={s.font_H1}>No access to camera</Text>
         <Button
           title={"Allow Camera"}
           onPress={() => askForCameraPermission()}
@@ -45,10 +48,12 @@ const ScanScreen = ({ navigation }) => {
     );
   }
 
+ 
+
   // Return the View
   return (
-    <View style={styles.container}>
-      <View style={styles.barcodebox}>
+    <View style={s.container}>
+      <View style={s.barcodebox}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
           style={{ height: 600, width: 600 }}
@@ -56,35 +61,18 @@ const ScanScreen = ({ navigation }) => {
       </View>
 
       {scanned && (
-        <Button
-          title={"Scan again?"}
-          onPress={() => setScanned(false)}
-          color="tomato"
-        />
+        <TouchableOpacity
+        onPress={() => setScanned(false)}
+        style={[s.button_2, s.magSpace_T]}>
+          <Text style={s.font_P2}>Scan again?</Text>
+          
+          
+          </TouchableOpacity>
       )}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  maintext: {
-    fontSize: 16,
-    margin: 20,
-  },
-  barcodebox: {
-    alignItems: "center",
-    justifyContent: "center",
-    height: 500,
-    width: 600,
-    overflow: "hidden",
-    borderRadius: 30,
-  },
-});
+
 
 export default ScanScreen;

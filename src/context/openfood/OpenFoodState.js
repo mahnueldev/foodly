@@ -21,7 +21,7 @@ const OpenFoodState = props => {
         setLoading(true);
 
         const res = await axios.get(
-            `https://world.openfoodfacts.org/api/v2/search?code=${index}&fields=id,product_name,brands,nutrient_levels,ingredients,nova_group,nutriscore_grade,creator,data_sources,image_url`
+            `https://world.openfoodfacts.org/api/v2/search?code=${index}&fields=id,product_name,brands,nutrient_levels,nutriments,nova_group,nutriscore_grade,creator,data_sources,image_url`
         );
         dispatch({
             type: SEARCH_ITEM,

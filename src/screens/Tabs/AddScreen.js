@@ -1,16 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Text, StyleSheet, View, FlatList } from 'react-native';
-import {
-  container,
-  magSpace_T,
-  align_cent,
-  justify_cent,
-  flex,
-  font_P3,
-  box5,
-  font_H1,
-  align_start,
-} from '../../styling/globalStyles';
+import { Text, View, FlatList } from 'react-native';
+import s from '../../styling/globalStyles';
 
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase';
@@ -37,14 +27,14 @@ const AddScreen = () => {
 
   const renderItem = ({ item }) => {
     return (
-      <View>
-        <View style={box5}>
-          <View style={align_start}>
-            <Text style={font_P3}>{`${item.code}`}</Text>
-            <Text style={font_H1}>{`${item.brand}`}</Text>
+     
+        <View style={s.box5}>
+          <View style={s.align_start}>
+            <Text style={s.font_P3}>{`${item.code}`}</Text>
+            <Text style={s.font_P1}>{`${item.brand}`}</Text>
           </View>
         </View>
-      </View>
+      
     );
   };
 
@@ -64,8 +54,8 @@ const AddScreen = () => {
   };
 
   return (
-    <View style={container}>
-      <View style={magSpace_T}>
+    <View style={s.container}>
+      
         <FlatList
           data={users}
           renderItem={renderItem}
@@ -79,22 +69,10 @@ const AddScreen = () => {
           onRefresh={onRefresh}
           refreshing={isLoading}
         />
-      </View>
+     
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container,
-
-  magSpace_T,
-  align_cent,
-  justify_cent,
-  flex,
-  font_P3,
-  box5,
-  font_H1,
-  align_start,
-});
 
 export default AddScreen;

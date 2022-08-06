@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import { Text, StyleSheet, View, TouchableOpacity, Modal } from 'react-native';
-import {
-  container,
-  font_H2,
-  button_2,
-  magSpace_T,
-  align_cent,
-} from '../../styling/globalStyles';
+import s from '../../styling/globalStyles';
 import InputField from '../../components/InputField';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../../firebase';
@@ -47,25 +41,25 @@ const AddNewScreen = () => {
 
   return (
     
-    <View style={styles.container}>
-      <View style={[magSpace_T, align_cent]}>
+    <View style={s.container}>
+      <View style={[s.magSpace_T, s.align_cent, s.container]}>
         <InputField
           label={'Code'}
-          keyboardType='text'
+          keyboardType='numeric'
           value={code}
           onChangeText={(code) => setCode(code)}
         />
 
         <InputField
           label={'Brand'}
-          keyboardType='text'
+          keyboardType='default'
           value={brand}
           onChangeText={(brand) => setBrand(brand)}
         />
 
         <InputField
           label={'Label'}
-          keyboardType='text'
+          keyboardType='default'
           value={label}
           onChangeText={(label) => setLabel(label)}
         />
@@ -74,25 +68,18 @@ const AddNewScreen = () => {
         transparent={true}
         visible={IsModalVisible}
         >
-          <View style={styles.container}>
+          <View style={s.container}>
       <Success msg= 'Product Added'/>
       </View>
         </Modal>
 
-        <TouchableOpacity style={styles.button_2} onPress={handleSend}>
-          <Text style={styles.font_H2}>Add</Text>
+        <TouchableOpacity style={s.button_2} onPress={handleSend}>
+          <Text style={s.font_H2}>Add</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container,
-  font_H2,
-  button_2,
-  magSpace_T,
-  align_cent,
-});
 
 export default AddNewScreen;

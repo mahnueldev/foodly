@@ -6,8 +6,6 @@ import {
 } from "@react-navigation/drawer";
 import { font_P1, font_H1, padSpace } from "../../styling/globalStyles";
 import Profile from "../../assets/images/profileImg.png";
-
-import { auth } from "../../../firebase";
 import authContext from "../../context/auth/authContext";
 
 const ProfileScreen = (props) => {
@@ -18,7 +16,7 @@ const ProfileScreen = (props) => {
       {/* Top-section view */}
       <View style={styles.profilebg}>
         <Image style={styles.profileBox} source={Profile} />
-        <Text style={[styles.font_H1, styles.padSpace]}>
+        <Text style={[styles.font_P1, styles.padSpace]}>
           {user.email}
         </Text>
       </View>

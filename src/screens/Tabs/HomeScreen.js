@@ -1,16 +1,16 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView} from "react-native";
 import Banner from "../../components/Banner";
 import ProjectImg from "../../assets/images/projectImg.png";
 import ProjectImg2 from "../../assets/images/projectImg2.png";
 import ProjectImg3 from "../../assets/images/pancake.png";
 import ProjectImg4 from "../../assets/images/veg.png";
-import { containerScroll } from "../../styling/globalStyles";
+import s from "../../styling/globalStyles";
 
 const HomeScreen = () => {
   return (
     <ScrollView
-      style={styles.containerScroll}
+      style={s.containerScroll}
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
     >
@@ -34,8 +34,5 @@ const HomeScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  containerScroll,
-});
 
 export default HomeScreen;
